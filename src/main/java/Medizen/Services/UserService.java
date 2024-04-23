@@ -5,6 +5,7 @@ import Medizen.Interfaces.IService;
 import Medizen.Models.User;
 import Medizen.Utils.MaConnexion;
 
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,11 +20,13 @@ public class UserService implements IService<User>  {
     @Override
     public void add(User user)  {
         String query = "INSERT INTO `user`(`email`, `password`,`roles`, `username`, `lastname`, `date_de_naissance`, `blocked`) VALUES (?, ?, ?, ?, ?,?, ?)";
+
         try {
+
             PreparedStatement statement = cnx.prepareStatement(query);
             statement.setString(1, user.getEmail());
-            statement.setString(2, user.getRoles().toString());
-            statement.setString(3, user.getPassword());
+            statement.setString(2, user.getPassword());
+            statement.setString(3, user.getRoles());
             statement.setString(4, user.getUsername());
             statement.setString(5, user.getLastname());
             statement.setDate(6, user.getDate_de_naissance());

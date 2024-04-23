@@ -45,6 +45,19 @@ import java.util.List;
         // Getters &setters
 
 
+        @Override
+        public String toString() {
+            return "User{" +
+                    "email='" + email + '\'' +
+                    ", roles='" + roles + '\'' +
+                    ", password='" + password + '\'' +
+                    ", username='" + username + '\'' +
+                    ", lastname='" + lastname + '\'' +
+                    ", date_de_naissance=" + date_de_naissance +
+                    ", blocked=" + blocked +
+                    '}';
+        }
+
         public int getId() {
             return id;
         }
