@@ -22,8 +22,8 @@ public class UserService implements IService<User>  {
         try {
             PreparedStatement statement = cnx.prepareStatement(query);
             statement.setString(1, user.getEmail());
-            statement.setString(2, user.getRoles().toString());
-            statement.setString(3, user.getPassword());
+            statement.setString(2, user.getPassword());
+            statement.setString(3, "[\""+user.getRoles()+"\"]");
             statement.setString(4, user.getUsername());
             statement.setString(5, user.getLastname());
             statement.setDate(6, user.getDate_de_naissance());
